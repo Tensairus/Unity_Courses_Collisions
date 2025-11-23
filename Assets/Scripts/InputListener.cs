@@ -4,11 +4,31 @@ using UnityEngine.InputSystem;
 
 public class InputListener : MonoBehaviour
 {
+    public static InputListener Instance { get; private set; }
+
     private Vector3 currentMousePosition;
     private Ray ray;
     private RaycastHit hit;
 
-    private event Action<RaycastHit> LeftMouseClicked;
+    public event Action<RaycastHit> LeftMouseClicked;
+
+    private void OnEnable()
+    {
+        Instance = this;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Update()
     {

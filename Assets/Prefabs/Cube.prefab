@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1525739311624075688}
+  - component: {fileID: 3233391536271330544}
   - component: {fileID: 2017350136273637954}
   - component: {fileID: 5039032228398772977}
   - component: {fileID: 4783458994654148496}
@@ -30,11 +31,28 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3233391536271330544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431134916300078482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a4890994842904d8efffe5a0bd8416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cube
+  _listener: {fileID: 0}
+  _cubePrefab: {fileID: 7431134916300078482}
+  _minSpawnAmount: 2
+  _maxSpawnAmount: 6
+  _splitChanceCurrent: 100
 --- !u!33 &2017350136273637954
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,4 +156,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
