@@ -48,11 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a4890994842904d8efffe5a0bd8416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cube
-  _listener: {fileID: 0}
-  _cubePrefab: {fileID: 7431134916300078482}
-  _minSpawnAmount: 2
-  _maxSpawnAmount: 6
-  _splitChanceCurrent: 100
+  _rigidBody: {fileID: 3040835300089691029}
+  _renderer: {fileID: 5039032228398772977}
+  _splitChance: 100
 --- !u!33 &2017350136273637954
 MeshFilter:
   m_ObjectHideFlags: 0

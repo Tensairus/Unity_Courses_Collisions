@@ -354,10 +354,11 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585551}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585551}
   - component: {fileID: 330585550}
   - component: {fileID: 330585549}
+  - component: {fileID: 330585552}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -507,6 +508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7db7762e38f6d1458121761df59c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeExploder
+  _cubeSpawner: {fileID: 330585550}
+  _puchForce: 10
+  _spinForce: 750
 --- !u!114 &330585550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,9 +524,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeSpawner
   _cubePrefab: {fileID: 7431134916300078482, guid: 9d526f36dfda96640862dda3ebe01e3a, type: 3}
+  _rayCaster: {fileID: 330585551}
+  _colorChanger: {fileID: 330585552}
   _minSpawnAmount: 2
   _maxSpawnAmount: 6
-  _spawnInitialImpulse: 10
 --- !u!114 &330585551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,8 +541,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RayCaster
   _listener: {fileID: 330585548}
-  _spawner: {fileID: 330585550}
-  _exploder: {fileID: 330585549}
+--- !u!114 &330585552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f0c5147571e5343bfda986eccae89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChanger
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,10 +1259,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3233391536271330544, guid: 9d526f36dfda96640862dda3ebe01e3a, type: 3}
-      propertyPath: _listener
-      value: 
-      objectReference: {fileID: 330585548}
     - target: {fileID: 7431134916300078482, guid: 9d526f36dfda96640862dda3ebe01e3a, type: 3}
       propertyPath: m_Name
       value: Cube
