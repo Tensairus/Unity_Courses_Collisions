@@ -3,23 +3,12 @@ using System.Collections.Generic;
 
 public class CubeExploder : MonoBehaviour
 {
-    [SerializeField] private CubeSpawner _cubeSpawner;
-    [SerializeField] private float _puchForce = 10f;
+    [SerializeField] private float _pushForce = 10f;
     [SerializeField] private float _spinForce = 750;
 
     private ForceMode _forceMode = ForceMode.Impulse;
 
-    private void OnEnable()
-    {
-        _cubeSpawner.CubesSpawned += OnCubesSpawned;
-    }
-
-    private void OnDisable()
-    {
-        _cubeSpawner.CubesSpawned -= OnCubesSpawned;
-    }
-
-    private void OnCubesSpawned(List<Cube> cubes, Cube originCube)
+    public void Explode(List<Cube> cubes, Cube originCube)
     {
         if(cubes != null)
         {            
@@ -32,7 +21,7 @@ public class CubeExploder : MonoBehaviour
 
         Destroy(originCube);
     }
-
+    
     private void Destroy(Cube cube)
     {
         cube.gameObject.SetActive(false);
@@ -43,11 +32,13 @@ public class CubeExploder : MonoBehaviour
     {
         Vector3 direction = cube.transform.position - originPoint;
         direction.Normalize();
-        cube.RigidBody.AddForce(direction * _puchForce, _forceMode);        
+        cube.RigidBody.AddForce(direction * _pushForce, _forceMode);        
     }
 
     private void Spin(Cube cube)
     {
-        cube.RigidBody.AddTorque(transform.up * _spinForce);
+        Vector3 randomTorque = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+
+        cube.RigidBody.AddTorque(randomTorque * _spinForce);
     }
 }
