@@ -24,7 +24,7 @@ public class CubeExploder : MonoBehaviour
         }
         else
         {
-            PushCubesInRadius(originCube);
+            ScatterCubesInRadius(originCube);
         }
 
         PlayExplosionEffect(originCube.transform.position);
@@ -67,7 +67,7 @@ public class CubeExploder : MonoBehaviour
         }
     }
 
-    private void PushCubesInRadius(Cube originCube)
+    private void ScatterCubesInRadius(Cube originCube)
     {
         Vector3 explosionEpicenter = originCube.transform.position;
 
@@ -85,8 +85,8 @@ public class CubeExploder : MonoBehaviour
             {
                 if(collider.TryGetComponent<Cube>(out Cube cube) & cube != originCube)
                 {
-                    Spin(cube);
                     cube.RigidBody.AddExplosionForce(explosionForce, explosionEpicenter, explosionRadius);
+                    Spin(cube);
                 }
             }
         }
