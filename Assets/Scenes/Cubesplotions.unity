@@ -523,7 +523,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7db7762e38f6d1458121761df59c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeExploder
-  _puchForce: 10
+  _explosionEffect: {fileID: 8974203713140315807, guid: 709b0bd6b0b625249a98409dd7a87343, type: 3}
+  _explosionEffectScale: 1.5
+  _explosionEffectLifeTime: 1
+  _explosionDefaultRadius: 5
+  _explosionDefaultForce: 500
+  _pushForce: 10
   _spinForce: 750
 --- !u!114 &331606161
 MonoBehaviour:
@@ -538,7 +543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CubeSpawner
   _cubePrefab: {fileID: 3233391536271330544, guid: 9d526f36dfda96640862dda3ebe01e3a, type: 3}
-  _rayCaster: {fileID: 1579053912}
   _colorChanger: {fileID: 331606159}
 --- !u!114 &331606162
 MonoBehaviour:
