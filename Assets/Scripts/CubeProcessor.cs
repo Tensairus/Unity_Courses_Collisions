@@ -34,7 +34,7 @@ public class CubeProcessor : MonoBehaviour
 
         if (TrySplit(cubeHit.SplitChance))
         {
-            newCubes = _spawner.SpawnCubes(Random.Range(_minSpawnAmount, _maxSpawnAmount + 1), cubeHit);
+            newCubes = _spawner.SpawnCubes(RollNewCubesAmount(), cubeHit);
         }
         else
         {
@@ -47,5 +47,10 @@ public class CubeProcessor : MonoBehaviour
     private bool TrySplit(float splitChance)
     {
         return Random.Range(_splitChanceMin, _splitChanceMax + 1) <= splitChance;
+    }
+
+    private int RollNewCubesAmount()
+    {
+        return Random.Range(_minSpawnAmount, _maxSpawnAmount + 1);
     }
 }
